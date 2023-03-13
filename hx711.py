@@ -1,5 +1,5 @@
-from utime import sleep_us, time
-from machine import Pin
+from time import sleep
+import board as Pin
 from micropython import const
 
 
@@ -28,7 +28,7 @@ class HX711(object):
     MAX_VALUE = const(0x7fffff)
     MIN_VALUE = const(0x800000)
     READY_TIMEOUT_SEC = const(5)
-    SLEEP_DELAY_USEC = const(80)
+    SLEEP_DELAY_USEC = 0.00008
 
     def __init__(self, d_out: int, pd_sck: int, channel: int = CHANNEL_A_128):
         self.d_out_pin = Pin(d_out, Pin.IN)
@@ -118,7 +118,7 @@ class HX711(object):
         """
         self.pd_sck_pin.value(0)
         self.pd_sck_pin.value(1)
-        sleep_us(self.SLEEP_DELAY_USEC)
+        sleep(self.SLEEP_DELAY_USEC)
 
     def power_on(self):
         """
