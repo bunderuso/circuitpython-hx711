@@ -9,3 +9,4 @@ Logic has been modified slightly to ensure pins can be addressed correctly.
 
 # Current limitations
 The pins are hardcoded to GP4 and GP5 in the hx711.py file. Goal is to remove this limitation to allow any pin to be used.
+The example folder has not been updated to Circuitpython standards
